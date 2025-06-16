@@ -10,7 +10,8 @@ app = Flask(__name__, static_folder='static', static_url_path='')
 CORS(app)
 
 # Configuration
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
+database_url = os.getenv('DATABASE_URL', 'sqlite:///rural_health.db')
+app.config['SQLALCHEMY_DATABASE_URI'] = database_url
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['JWT_SECRET_KEY'] = 'rural-health-tracker-secret-key-2025'
 app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(days=7)
