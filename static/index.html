@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rural Health Tracker & Clinic Link</title>
+    <meta name="description" content="Empowering rural communities with offline-first health tracking and seamless clinic connectivity. Track symptoms, book appointments, and manage your health data securely.">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --medical-blue: #3b82f6;
+            --medical-blue-dark: #2563eb;
+            --health-green: #10b981;
+            --health-green-dark: #059669;
+            --alert-red: #ef4444;
+            --warning-amber: #f59e0b;
+        }
+        
+        .bg-medical-blue { background-color: var(--medical-blue); }
+        .bg-medical-blue-dark { background-color: var(--medical-blue-dark); }
+        .text-medical-blue { color: var(--medical-blue); }
+        .bg-health-green { background-color: var(--health-green); }
+        .bg-health-green-dark { background-color: var(--health-green-dark); }
+        .text-health-green { color: var(--health-green); }
+        .bg-alert-red { background-color: var(--alert-red); }
+        .text-alert-red { color: var(--alert-red); }
+        .bg-warning-amber { background-color: var(--warning-amber); }
+        .text-warning-amber { color: var(--warning-amber); }
+        
+        .dark {
+            background-color: #1f2937;
+            color: #f9fafb;
+        }
+        
+        .dark .bg-white { background-color: #374151; }
+        .dark .text-gray-900 { color: #f9fafb; }
+        .dark .text-gray-600 { color: #d1d5db; }
+        .dark .text-gray-500 { color: #9ca3af; }
+        .dark .bg-gray-50 { background-color: #4b5563; }
+        .dark .bg-gray-100 { background-color: #374151; }
+        .dark .border-gray-200 { border-color: #4b5563; }
+        .dark .border-gray-300 { border-color: #6b7280; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div id="app">
+        <!-- Navigation -->
+        <nav class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <div class="flex items-center space-x-4">
+                        <div class="flex items-center space-x-2 cursor-pointer" onclick="navigateTo('home')">
+                            <i class="fas fa-heart text-medical-blue text-2xl"></i>
+                            <h1 class="text-xl font-semibold text-gray-900">Rural Health Tracker</h1>
+                        </div>
+                    </div>
+
+                    <!-- Desktop Navigation -->
+                    <div class="hidden md:flex items-center space-x-6">
+                        <button onclick="navigateTo('home')" class="text-gray-700 hover:text-medical-blue transition-colors px-3 py-2 rounded-md">Home</button>
+                        <button onclick="navigateTo('about')" class="text-gray-700 hover:text-medical-blue transition-colors px-3 py-2 rounded-md">About</button>
+                        <button onclick="navigateTo('contact')" class="text-gray-700 hover:text-medical-blue transition-colors px-3 py-2 rounded-md">Contact</button>
+                        <div id="auth-buttons">
+                            <button onclick="navigateTo('login')" class="text-gray-700 hover:text-medical-blue transition-colors px-3 py-2 rounded-md">Login</button>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center space-x-3">
+                        <!-- Dark Mode Toggle -->
+                        <button id="theme-toggle" class="p-2 rounded-lg bg-gray-100 hover:bg-gray-200">
+                            <i class="fas fa-moon text-gray-600"></i>
+                        </button>
+
+                        <!-- Mobile Menu Button -->
+                        <button id="mobile-menu-btn" class="md:hidden p-2">
+                            <i class="fas fa-bars text-gray-600"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden bg-white border-t border-gray-200 hidden">
+                <div class="px-4 py-3 space-y-2">
+                    <button onclick="navigateTo('home')" class="block w-full text-left py-2 text-gray-700">Home</button>
+                    <button onclick="navigateTo('about')" class="block w-full text-left py-2 text-gray-700">About</button>
+                    <button onclick="navigateTo('contact')" class="block w-full text-left py-2 text-gray-700">Contact</button>
+                    <button onclick="navigateTo('login')" class="block w-full text-left py-2 text-gray-700">Login</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main id="main-content">
+            <!-- Content will be dynamically loaded here -->
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-gray-900 text-white py-8 mt-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <p>&copy; 2025 Rural Health Tracker. All Rights Reserved</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="fixed top-4 right-4 z-50 space-y-2"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
