@@ -53,7 +53,8 @@ export class MemStorage implements IStorage {
     this.currentContactId = 1;
 
     // Create default admin user
-    this.createUser({
+    const adminUser: User = {
+      id: this.currentUserId++,
       username: "admin",
       email: "admin@ruralhealthtracker.com",
       password: "admin123",
@@ -62,7 +63,9 @@ export class MemStorage implements IStorage {
       gender: "Other",
       dateOfBirth: "1990-01-01",
       isAdmin: true,
-    });
+      createdAt: new Date(),
+    };
+    this.users.set(adminUser.id, adminUser);
   }
 
   // User methods
@@ -88,7 +91,7 @@ export class MemStorage implements IStorage {
       ...insertUser, 
       id, 
       createdAt: new Date(),
-      isAdmin: insertUser.isAdmin || false 
+      isAdmin: false 
     };
     this.users.set(id, user);
     return user;

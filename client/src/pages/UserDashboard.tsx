@@ -10,7 +10,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { insertAppointmentSchema, insertSymptomSchema, type InsertAppointment, type InsertSymptom, type Appointment, type Symptom } from "@shared/schema";
 import { apiRequest, queryClient } from "@/lib/queryClient";
-import { useAuth } from "@/lib/auth";
+import { useAuth } from "@/lib/auth.tsx";
 import { useToast } from "@/hooks/use-toast";
 import { Calendar, TrendingUp, RefreshCw, Wifi, CalendarPlus, Plus, History, UserCog, Edit, X, Thermometer } from "lucide-react";
 

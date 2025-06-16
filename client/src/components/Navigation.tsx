@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { useTheme } from "./ThemeProvider";
 import { Heart, Moon, Sun, Menu, X } from "lucide-react";
 import { useState } from "react";
-import { useAuth } from "@/lib/auth";
+import { useAuth } from "@/lib/auth.tsx";
 
 export function Navigation() {
   const [location] = useLocation();
