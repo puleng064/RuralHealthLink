@@ -564,7 +564,11 @@ export default function UserDashboard() {
                             <Textarea
                               rows={3}
                               placeholder="Any additional information about the symptom..."
-                              {...field}
+                              value={field.value || ""}
+                              onChange={field.onChange}
+                              onBlur={field.onBlur}
+                              name={field.name}
+                              ref={field.ref}
                             />
                           </FormControl>
                           <FormMessage />

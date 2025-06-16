@@ -168,8 +168,13 @@ export class MemStorage implements IStorage {
   async createSymptom(insertSymptom: InsertSymptom): Promise<Symptom> {
     const id = this.currentSymptomId++;
     const symptom: Symptom = { 
-      ...insertSymptom, 
-      id, 
+      id,
+      userId: insertSymptom.userId,
+      dateTime: insertSymptom.dateTime,
+      category: insertSymptom.category,
+      description: insertSymptom.description,
+      severity: insertSymptom.severity,
+      notes: insertSymptom.notes || null,
       createdAt: new Date() 
     };
     this.symptoms.set(id, symptom);
